@@ -1,10 +1,10 @@
 import React from 'react';
 import { useAuth } from '../../context/AuthContext';
-import { Building, TrendingUp, IndianRupee, Briefcase } from 'lucide-react';
+import { Building, TrendingUp, DollarSign, Briefcase } from 'lucide-react';
 
 export default function CompanyInsightsView() {
     const { user } = useAuth();
-    
+
     // Support both Student (interested_course) and Mentor (course_expertise) views
     const courseFocus = user?.interested_course || user?.course_expertise || 'General';
 
@@ -22,30 +22,29 @@ export default function CompanyInsightsView() {
 
     const targetRole = getHighPayingRole(courseFocus);
 
-    // Adjusted to realistic high-end entry/mid-level Indian Tech Salaries
     const companies = [
         {
             name: 'Google',
             logoAlt: 'G',
             color: '#4285F4',
             role: targetRole,
-            salary: '₹18,00,000 - ₹35,00,000',
-            perks: 'Free meals, Generous PF, High equity grants.'
+            salary: '$180,000 - $350,000+',
+            perks: 'Free meals, 401k match, High equity grants.'
         },
         {
             name: 'Microsoft',
             logoAlt: 'M',
             color: '#00A4EF',
             role: targetRole,
-            salary: '₹16,00,000 - ₹32,00,000',
-            perks: 'Excellent work-life balance, Top tier healthcare cover.'
+            salary: '$160,000 - $300,000+',
+            perks: 'Excellent work-life balance, Top tier healthcare.'
         },
         {
             name: 'Meta',
             logoAlt: 'Me',
             color: '#0668E1',
             role: targetRole,
-            salary: '₹20,00,000 - ₹40,00,000',
+            salary: '$200,000 - $400,000+',
             perks: 'Aggressive stock vesting, Fast promotions.'
         },
         {
@@ -53,7 +52,7 @@ export default function CompanyInsightsView() {
             logoAlt: 'A',
             color: '#FF9900',
             role: targetRole,
-            salary: '₹15,00,000 - ₹28,00,000',
+            salary: '$170,000 - $320,000+',
             perks: 'Remote flexibility, Massive scale architecture.'
         },
         {
@@ -61,7 +60,7 @@ export default function CompanyInsightsView() {
             logoAlt: 'Ap',
             color: '#A2AAAD',
             role: targetRole,
-            salary: '₹18,00,000 - ₹34,00,000',
+            salary: '$180,000 - $330,000+',
             perks: 'Hardware discounts, Exclusive campus resources.'
         }
     ];
@@ -72,13 +71,13 @@ export default function CompanyInsightsView() {
                 <h1 style={{ fontSize: '2rem', display: 'flex', alignItems: 'center', gap: '12px' }}>
                     <Building color="var(--primary-color)" /> Tech Industry Insights
                 </h1>
-                <p style={{ color: 'var(--text-muted)' }}>Discover high-paying careers in <strong style={{color: 'var(--primary-color)'}}>{courseFocus}</strong> at top multi-national companies.</p>
+                <p style={{ color: 'var(--text-muted)' }}>Discover high-paying careers in <strong style={{ color: 'var(--primary-color)' }}>{courseFocus}</strong> at top multi-national companies.</p>
             </header>
 
             <div className="grid-cols-2" style={{ gap: '24px' }}>
                 {companies.map((company) => (
                     <div key={company.name} className="glass-card" style={{ padding: '24px', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
-                        
+
                         {/* Decorative Background Blob */}
                         <div style={{
                             position: 'absolute',
@@ -119,7 +118,7 @@ export default function CompanyInsightsView() {
 
                         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '16px', position: 'relative', zIndex: 1, marginTop: '12px' }}>
                             <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
-                                <Briefcase size={20} color="var(--primary-color)" style={{ marginTop: '2px' }}/>
+                                <Briefcase size={20} color="var(--primary-color)" style={{ marginTop: '2px' }} />
                                 <div>
                                     <h3 style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '4px' }}>Target Elite Role</h3>
                                     <p style={{ fontSize: '1.2rem', fontWeight: '600', color: 'white' }}>{company.role}</p>
@@ -127,7 +126,7 @@ export default function CompanyInsightsView() {
                             </div>
 
                             <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
-                                <IndianRupee size={20} color="var(--success-color)" style={{ marginTop: '2px' }}/>
+                                <DollarSign size={20} color="var(--success-color)" style={{ marginTop: '2px' }} />
                                 <div>
                                     <h3 style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '4px' }}>Estimated Total Compensation</h3>
                                     <p style={{ fontSize: '1.2rem', fontWeight: '600', color: 'var(--success-color)' }}>{company.salary}</p>
@@ -135,10 +134,10 @@ export default function CompanyInsightsView() {
                             </div>
                         </div>
 
-                        <div style={{ 
-                            marginTop: '24px', 
-                            padding: '16px', 
-                            background: 'rgba(0,0,0,0.3)', 
+                        <div style={{
+                            marginTop: '24px',
+                            padding: '16px',
+                            background: 'rgba(0,0,0,0.3)',
                             borderRadius: '12px',
                             borderLeft: `4px solid ${company.color}`,
                             position: 'relative',
