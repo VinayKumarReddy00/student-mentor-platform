@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
 
 import LandingPage from './pages/LandingPage';
@@ -13,7 +13,7 @@ function App() {
   const [hideBanner, setHideBanner] = useState(false);
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       {/* Dev notification if Supabase isn't configured */}
       {!isSupabaseConfigured && !hideBanner && (
         <div style={{ background: 'var(--warning-color)', color: '#000', padding: '12px', textAlign: 'center', fontWeight: 'bold', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '16px' }}>
@@ -48,7 +48,7 @@ function App() {
       <footer style={{ padding: '20px', textAlign: 'center', borderTop: '1px solid var(--surface-border)', opacity: 0.6 }}>
         <p>Developed by Vinay</p>
       </footer>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
